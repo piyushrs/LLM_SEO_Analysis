@@ -32,3 +32,6 @@ No installation necessary.
   python app.py
   ```
 * Open your browser and go to the link: http://localhost:8080
+
+## Disclaimer
+This project is not hosted anywhere and is intended for running locally only!
