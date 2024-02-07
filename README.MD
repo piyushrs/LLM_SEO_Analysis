@@ -1,8 +1,9 @@
 # Project Name
-Whatsmyvalueprop
+## LLM SEO Analysis
+
 ## Description
 
-You can provide any website link to see how llama2 interprets its value proposition.
+You can provide any website link to see how llama2 gives its SEO Analysis.
 
 ## Features
 
@@ -26,4 +27,8 @@ No installation necessary.
 
 ### How to run
 
-You can run the code by running the <i>app.py</i> file.
+* You can run the code by running the <i>app.py</i> file in your terminal with this command:
+  ```bash
+  python app.py
+  ```
+* Open your browser and go to the link: http://localhost:8080
