@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsMyValueProp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+</head>
+<body>
+    <div id="app" data-v-app>
+        <main class>
+            <div class="input">
+                <h1>
+                    "Ollama"
+                    <em>SEO Analysis</em>
+                </h1>
+                <p class="input_instructions">
+                    "Enter the web address of the business to see how llama2 gives its SEO Analysis."
+                </p>
+                <div class="input__group">
+                    <input placeholder="https://" autofocus id="input_data" required>
+                    <button onclick = "test()">Submit</button>
+                    <script>
+                        function test(){
+                            document.getElementsByClassName
+                            var input_data = document.getElementById("input_data").value;
+                            if (input_data){
+                                document.querySelector(".input__error").setAttribute("hidden", true);
+                                document.querySelector(".loader").removeAttribute("hidden");
+                                fetch('/test', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ input_data: input_data}),
+                                })
+                                .then(response => response.json())
+                                .then(result => {
+                                    console.log('Response:', result);
+                                    console.log(result.result);
+                                    document.querySelector(".loader").setAttribute("hidden", true);
+                                    document.getElementById("markdown_container").innerHTML = result.result;
+                                    document.getElementById("markdown_container").removeAttribute("hidden");
+                                })
+                                .catch(error => console.error('Error: ', error));
+                            }
+                            else{
+                                document.querySelector(".input__error").removeAttribute("hidden");
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="input__error" hidden="true">Request failed with status code 422</div>
+                <div class="loader" hidden="true"></div>
+                <div id = "markdown_container" hidden="true"></div>
+            </div>
+            <footer class="footer">
+                <h2>This is a test webpage</h2>
+                <p>This test to gain understanding of prompt engineering</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

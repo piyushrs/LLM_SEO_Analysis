@@ -1,0 +1,9 @@
+bs4==0.0.2
+Flask==3.0.2
+Flask-Cors==4.0.0
+Markdown==3.5.2
+numpy==1.26.3
+ollama==0.1.6
+pandas==2.2.0
+requests==2.31.0
+urllib3==2.2.0
